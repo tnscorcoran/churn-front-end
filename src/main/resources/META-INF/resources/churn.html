@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Churn AI/ML Model Call</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/wingcss/0.1.8/wing.min.css"/>
+    <!-- Load AngularJS -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script type="text/javascript">
+      var app = angular.module("ChurnManagement", []);
+
+      //Controller Part
+      app.controller("ChurnManagementController", function ($scope, $http) {
+
+        //Initialize page with default data which is blank in this example
+        $scope.churnPredictions = [];
+
+        $scope.form = {
+          gender: "Female",
+          SeniorCitizen: 0,
+          Partner: "Yes",
+          Dependents: "Yes",
+          Tenure: 1,
+          PhoneService: "Yes",
+          MultipleLines: "Yes",
+          InternetService: "Fiber optic",
+          OnlineSecurity: "Yes",
+          OnlineBackup: "Yes",
+          DeviceProtection: "Yes",
+          TechSupport: "No",
+          StreamingTV: "Yes",
+          StreamingMovies: "Yes",
+          Contract: "Month-to-month",
+          PaperlessBilling: "Yes",
+          PaymentMethod: "Electronic check",
+          MonthlyCharges: "100",
+          TotalCharges: "80",
+          postUrl: ""
+        };
+
+         
+
+        $scope.add = function () {
+
+            var jason = `
+{
+  "data": {
+      "names": [
+          "gender",
+          "SeniorCitizen",
+          "Partner",
+          "Dependents",
+          "tenure",
+          "PhoneService",
+          "MultipleLines",
+          "InternetService",
+          "OnlineSecurity",
+          "OnlineBackup",
+          "DeviceProtection",
+          "TechSupport",
+          "StreamingTV",
+          "StreamingMovies",
+          "Contract",
+          "PaperlessBilling",
+          "PaymentMethod",
+          "MonthlyCharges",
+          "TotalCharges"
+      ],
+      "ndarray": [
+          [
+              "`+$scope.form.gender+`",
+              `+$scope.form.SeniorCitizen+`,
+              "`+$scope.form.Partner+`",
+              "`+$scope.form.Dependents+`",
+              `+$scope.form.Tenure+`,
+              "`+$scope.form.PhoneService+`",
+              "`+$scope.form.MultipleLines+`",
+              "`+$scope.form.InternetService+`",
+              "`+$scope.form.OnlineSecurity+`",
+              "`+$scope.form.OnlineBackup+`",
+              "`+$scope.form.DeviceProtection+`",
+              "`+$scope.form.TechSupport+`",
+              "`+$scope.form.StreamingTV+`",
+              "`+$scope.form.StreamingMovies+`",
+              "`+$scope.form.Contract+`",
+              "`+$scope.form.PaperlessBilling+`",
+              "`+$scope.form.PaymentMethod+`",
+              `+$scope.form.MonthlyCharges+`,
+              `+$scope.form.TotalCharges+`
+          ]
+      ]
+  }
+}`;
+
+        
+        var postUrl = $scope.form.postUrl;
+
+        if (postUrl.endsWith("/")){
+            postUrl = postUrl + "api/v1.0/predictions";
+        }
+        else{
+            postUrl = postUrl + "/api/v1.0/predictions";
+        }
+
+
+        var churn = {'url':postUrl,'jason' : jason};
+          
+
+          $http({
+            method: "POST",
+            url: '/churn',
+
+            data: JSON.stringify(churn),
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          }).then(function successCallback(response) {
+            
+            console.log(response.data);
+            
+            $scope.churnPredictions = response.data;
+
+            if ($scope.churnPredictions.length ==1){
+                console.log("size 1");
+                //https://stackoverflow.com/questions/4488714/change-label-text-using-javascript
+                document.getElementById('lblprediction').innerHTML = $scope.churnPredictions[0].prediction;
+                document.getElementById('lblcertainty').innerHTML = $scope.churnPredictions[0].certainty;
+
+            }
+
+          }, function errorCallback(response) {
+            console.log(response.statusText);
+          });
+        };
+
+        function _error(response) {
+          alert(response.data.message || response.statusText);
+        }
+
+        //Clear the form
+        function _clearForm() {
+            $scope.form.gender = "";
+            $scope.form.SeniorCitizen = "";
+            $scope.form.Partner = "";
+            $scope.form.Dependents = "";
+            $scope.form.tenure = "";
+            $scope.form.PhoneService = "";
+            $scope.form.MultipleLines = "";
+            $scope.form.InternetService = "";
+            $scope.form.OnlineSecurity = "";
+            $scope.form.OnlineBackup = "";
+            $scope.form.DeviceProtection = "";
+            $scope.form.TechSupport = "";
+            $scope.form.StreamingTV = "";
+            $scope.form.StreamingMovies = "";
+            $scope.form.Contract = "";
+            $scope.form.PaperlessBilling = "";
+            $scope.form.PaymentMethod = "";
+            $scope.form.MonthlyCharges = "";
+            $scope.form.TotalCharges = "";
+            $scope.form.postUrl = ""
+        }
+      });
+    </script>
+</head>
+<body ng-app="ChurnManagement" ng-controller="ChurnManagementController">
+
+<div class="container">
+    <h1>Churn AI/ML Model</h1>
+
+    <h3>Call model</h3>
+    <form ng-submit="add()">
+        <div class="row">
+            <div class="col-2">Gender</div>
+            <div class="col-2"><input type="text" placeholder="Female" ng-model="form.gender" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">SeniorCitizen</div>
+            <div class="col-2"><input type="text" placeholder="0" ng-model="form.SeniorCitizen" size="30"/></div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">Partner</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.Partner" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">Dependents</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.Dependents" size="30"/></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2">Tenure</div>
+            <div class="col-2"><input type="text" placeholder="1" ng-model="form.Tenure" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">PhoneService</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.PhoneService" size="30"/></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2">MultipleLines</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.MultipleLines" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">InternetService</div>
+            <div class="col-2"><input type="text" placeholder="Fiber optic" ng-model="form.InternetService" size="30"/></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2">OnlineSecurity</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.OnlineSecurity" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">OnlineBackup</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.OnlineBackup" size="30"/></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2">DeviceProtection</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.DeviceProtection" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">TechSupport</div>
+            <div class="col-2"><input type="text" placeholder="No" ng-model="form.TechSupport" size="30"/></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2">StreamingTV</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.StreamingTV" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">StreamingMovies</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.StreamingMovies" size="30"/></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2">Contract</div>
+            <div class="col-2"><input type="text" placeholder="Month-to-month" ng-model="form.Contract" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">PaperlessBilling</div>
+            <div class="col-2"><input type="text" placeholder="Yes" ng-model="form.PaperlessBilling" size="30"/></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-2">PaymentMethod</div>
+            <div class="col-2"><input type="text" placeholder="Electronic check" ng-model="form.PaymentMethod" size="30"/></div>
+            <div class="col-2"></div>
+            <div class="col-2">MonthlyCharges</div>
+            <div class="col-2"><input type="text" placeholder="100" ng-model="form.MonthlyCharges" size="30"/></div>
+        </div>
+        <div class="row">
+            <div class="col-2">TotalCharges</div>
+            <div class="col-2"><input type="text" placeholder="80" ng-model="form.TotalCharges" size="30"/></div>
+        </div>
+        
+
+        <!-- <h5>URL (include / at the end)/h3> -->
+            <hr>
+
+        <!-- <div class="row"> -->
+             <div class="col-2">Inference URL</div>
+            <div class="col-2"><input type="text" placeholder="Your OpenShift Route" ng-model="form.postUrl" size="60"/></div>
+        <!-- </div> -->
+
+        <input type="submit" value="Make inference call"/>
+    </form>
+
+    <h3>Churn Prediction</h3>
+    <div class="row">
+        <div class="col-4">Prediction</div>
+        <div class="col-8">Certainty</div>
+    </div>
+    <div class="row">
+        <div class="col-4">-----------</div>
+        <div class="col-8">-----------</div>
+    </div>
+     
+    <div class="row">
+        <div class="col-4" ><label id="lblprediction">Go Ahead - make Inference call!</label></div>
+        <div class="col-8" ><label id="lblcertainty"></label></div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-4">-----------</div>
+        <div class="col-8">-----------</div>
+    </div>
+
+</div>
+
+</body>
+</html>
