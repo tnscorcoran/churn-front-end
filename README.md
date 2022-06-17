@@ -6,3 +6,20 @@ A front end for https://github.com/odh-labs/ml-workshop
 
 -----------------------------
 
+### PACKAGING/RUNNING INSTRUCTIONS
+
+```
+mvn package
+
+./mvnw quarkus:dev
+
+localhost:8080/churn
+```
+
+-----------------------------
+
+### CONTAINERISING INSTRUCTIONS
+
+
+mvn package
+
