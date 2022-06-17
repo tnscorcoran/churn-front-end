@@ -41,5 +41,5 @@ docker push your-docker-repo/churn-frontend:latest
 For convermnience, I've added this repo to Dockerhub under this repository tag __tnscorcoran/churn-frontend:latest__
 
 In OpenShift, in Developer perspective, click __Add__ and select __Container Images__
-<img src="./images/add-container-image.png" width="500"/>  
+<img src="./images/add-container-image.png" width="700"/>  
 
