@@ -44,9 +44,8 @@ In OpenShift, in Developer perspective, click __Add__ and select __Container Ima
 <img src="./images/frontend/frontend-1-add-container-image.png" width="700"/>  
 
 You'll see a screen like this. Under Image Name , enter 
-```
-tnscorcoran/churn-frontend:latest
-```
+__*tnscorcoran/churn-frontend:latest*__
+
 Then set your __Application Name__ and __Name__ to __*churn-frontend*__
 Go with the rest of the defaults and click __Create__
 <img src="./images/frontend/frontend-2-deploy-image.png" width="700"/>  
