@@ -53,7 +53,7 @@ Go with the rest of the defaults and click __Create__
 
 A couple of minutes later, the circle should be dark blue - indiciating it's deplyed. Hit the route button as shown - and append *churn-frontend.html* to the tab that opens our your browser. In my case the full URL is
 ```
-__http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opentlc.com/churn-frontend.html__
+http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opentlc.com/churn-frontend.html
 ```
 
 ---------------------------------------------------------------------------------------------------------
