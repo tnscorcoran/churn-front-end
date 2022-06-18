@@ -23,7 +23,7 @@ localhost:8080/churn
 I'm using docker/Dockerfile.jvm as my Dockerfile. Rename yours as approprate
 
 
-Sample packaging instructions. Using docker - alternatively use podman
+Sample packaging instructions. Using docker - alternatively use podman. Enter your credentials for your desired registry.
 ```
 mvn package
 docker login
