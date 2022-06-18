@@ -67,6 +67,10 @@ http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opent
 ### NOTE - in the Churn Instructions, the following should be for the students; before here should be in the setup instructions
 
 
+Before making an inference call to our model, you'll need to get *your inference URL*. In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__. In the filter box, enter your experiment ID from the experiment you registered in  __*ML FLOW*__  earlier. Copy the URL under *Location*. That's *your inference URL*. 
+<img src="./images/frontend/frontend-6-inference-URL.png" width="700"/>  
+
+
 In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__ and filter on __*churn-frontend*__
 <img src="./images/frontend/frontend-4-frontend-route.png" width="700"/>  
 
@@ -79,8 +83,6 @@ http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opent
 Open it and you'll see a screen like this:
 <img src="./images/frontend/frontend-5-frontend-page.png" width="700"/>  
 
-Before making an inference call to our model, you'll need to get *your inference URL*. In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__. In the filter box, enter your experiment ID from the experiment you registered in  __*ML FLOW*__  earlier. Copy the URL under *Location*. That's *your inference URL*. 
-<img src="./images/frontend/frontend-6-inference-URL.png" width="700"/>  
-
-
+In the large textbox, enter *your inference URL* that you got a couple of steps back. Click __MAKE INFERENCE CALL__. Shortly, the page will show a prediction of __*cChurn*__  or __*Not Churn*__  as a well as how certain the model is of this prediction. Feel free to experiment.
+<img src="./images/frontend/frontend-7-inference-URL-result.png" width="700"/>  
 
