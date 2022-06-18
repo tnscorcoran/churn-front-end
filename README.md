@@ -20,7 +20,7 @@ localhost:8080/churn-frontend.html
 
 ### CONTAINERISING INSTRUCTIONS
 
-I'm using docker/Dockerfile.jvm as my Dockerfile. Rename yours as approprate
+I'm using src/main/docker/Dockerfile.jvm as my Dockerfile. Rename yours as approprate
 
 
 Sample packaging instructions. Using docker - alternatively use podman. Enter your credentials for your desired registry.
