@@ -64,7 +64,7 @@ http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opent
 
 ---------------------------------------------------------------------------------------------------------
 
-### NOTE - in the Churn Instructions, the following should be for the students; before hee should be in the setup instructions
+### NOTE - in the Churn Instructions, the following should be for the students; before here should be in the setup instructions
 
 
 In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__ and filter on __*churn-frontend*__
