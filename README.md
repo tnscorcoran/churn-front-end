@@ -82,6 +82,6 @@ http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opent
 Open it and you'll see a screen like this:
 <img src="./images/frontend/frontend-5-frontend-page.png" width="700"/>  
 
-In the large textbox, enter *your inference URL* that you got a couple of steps back. Click __MAKE INFERENCE CALL__. Shortly, the page will show a prediction of __*cChurn*__  or __*Not Churn*__  as a well as how certain the model is of this prediction. Feel free to experiment.
+In the large textbox, enter *your inference URL* that you got a couple of steps back. Click __MAKE INFERENCE CALL__. Shortly, the page will show a prediction of __*Churn*__  or __*Not Churn*__  as a well as how certain the model is of this prediction. Feel free to experiment.
 <img src="./images/frontend/frontend-7-inference-URL-result.png" width="700"/>  
 
