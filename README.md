@@ -47,8 +47,30 @@ You'll see a screen like this. Enter
 ```
 tnscorcoran/churn-frontend:latest
 ```
-and set an Application Name and Name of something like *churn-frontend*
+Set your __Application Name__ and __Name__ to __*churn-frontend*__
 Go with the rest of the defaults and click __Create__
-<img src="./images/frontend/frontend-2-deploy-image" width="700"/>  
+<img src="./images/frontend/frontend-2-deploy-image.png" width="700"/>  
 
+A couple of minutes later, the circle should be dark blue - indiciating it's deplyed. Hit the route button as shown - and append *churn-frontend.html* to the tab that opens our your browser. In my case the full URL is
+__http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opentlc.com/churn-frontend.html__
+
+
+---------------------------------------------------------------------------------------------------------
+
+### NOTE - in the Churn Instructions, the following should be for the students; before hee should be in the setup instructions
+
+
+In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__ and filter on __*churn-frontend*__
+<img src="./images/frontend/frontend-4-frontend-route.png" width="700"/>  
+
+
+Hit the route link as shown - and append *churn-frontend.html* to the tab that opens our your browser. 
+
+In my case the full URL is
+__http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opentlc.com/churn-frontend.html__
+
+
+Before we open the frontend application, you'll need to get *your inference URL*. In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__. In the filter b
+
+Open it and you'll see a screen like this:
 
