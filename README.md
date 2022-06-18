@@ -64,7 +64,7 @@ http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opent
 
 ---------------------------------------------------------------------------------------------------------
 
-### NOTE - in the Churn Instructions, the following should be for the students; before here should be in the setup instructions
+### NOTE - in the actual Churn Instructions, the following should be for the students; before here should be in the setup instructions
 
 
 Before making an inference call to our model, you'll need to get *your inference URL*. In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__. In the filter box, enter your experiment ID from the experiment you registered in  __*ML FLOW*__  earlier. Copy the URL under *Location*. That's *your inference URL*. 
