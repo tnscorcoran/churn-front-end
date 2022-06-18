@@ -70,11 +70,12 @@ http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opent
 In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__ and filter on __*churn-frontend*__
 <img src="./images/frontend/frontend-4-frontend-route.png" width="700"/>  
 
+Hit the route button as shown and append  __*churn-frontend.html*__ to the tab that opens our your browser. In my case the full URL is
 
-Hit the route link as shown - and append *churn-frontend.html* to the tab that opens our your browser. 
+```
+http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opentlc.com/churn-frontend.html
 
-In my case the full URL is
-__http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opentlc.com/churn-frontend.html__
+```
 
 
 Before we open the frontend application, you'll need to get *your inference URL*. In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__. In the filter b
