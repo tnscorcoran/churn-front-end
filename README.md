@@ -13,7 +13,7 @@ mvn package
 
 ./mvnw quarkus:dev
 
-localhost:8080/churn
+localhost:8080/churn-frontend.html
 ```
 
 -----------------------------
