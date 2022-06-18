@@ -76,9 +76,10 @@ Hit the route button as shown and append  __*churn-frontend.html*__ to the tab t
 http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opentlc.com/churn-frontend.html
 
 ```
-
-
-Before we open the frontend application, you'll need to get *your inference URL*. In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__. In the filter b
-
 Open it and you'll see a screen like this:
+
+Before making an inference call to our model, you'll need to get *your inference URL*. In OpenShift, __open the Administrator perspective__ then __move to Networking > Routes__. In the filter box, enter your experiment ID from the experiment you registered in  __*ML FLOW*__  earlier. Copy the URL under *Location*. That's *your inference URL*. 
+<img src="./images/frontend/frontend-6-inference-URL.png" width="700"/>  
+
+
 
