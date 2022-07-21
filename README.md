@@ -61,7 +61,9 @@ http://churn-frontend-a-churn-frontend.apps.cluster-qk7ft.qk7ft.sandbox651.opent
 
 ```
 
+
 If you get a 404, or 503, change the protocol from HTTPS to HTTP.
+
 ---------------------------------------------------------------------------------------------------------
 
 ### NOTE - in the actual Churn Instructions, the following should be for the students; before here should be in the setup instructions
